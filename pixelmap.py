@@ -53,11 +53,12 @@ class PixelMap(object):
         return res
 
     def set(self, v1, v2, v3=None):
-        """Set the value in a 1D or 2D space. If v3 == None we are in a 1D
-        space, otherwise we are in a 2D space.
+        """Set the value in a 1D or 2D space.
+
+        If v3 == None we are in a 1D space, otherwise we are in a 2D space.
 
         Arguments:
-        - `v1`: index, absolute position in 1D space, x positino if in 2D space.
+        - `v1`: index, absolute position in 1D space, x position if in 2D space.
         - `v2`: value if in 1D space, y position if in 2D space.
         - `v3`: if None we are in a 1D space, if not None it's the value to set.
         """
