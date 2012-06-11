@@ -2,29 +2,49 @@
 # -*- coding: utf-8 -*-
 
 class PixelMap(object):
-    """Describes a PixelMap
+    """A PixelMap is  a rectangle made of many units called pixel.
+
+    The aim of this class is to provide basic functionnality in order to make
+    life easier.
+
+    The map is implemented as a 1D list because of pointer problem in 2D list in
+    python.
+    We will notice that we speak of "1D-space" and "2D-space". In fact we make
+    an equivalence between the 1D list stored in this class, and the 2D
+    rectangular representation of the map.
+    
     """
     
     def __init__(self, w, h, init_value = None):
-        """Initialize a pixel map given its size.
+        """Initialize a PixelMap given its size.
         
         Arguments:
         - `w`: width of the map.
         - `h`: height of the map.
         - `init_value`: initial value for the map.
+
+        Attributes:
+        - `_w`: width of the map.
+        - `_h`: height of the map.
+        - `_n`: the number of pixels.
+        - `_map`: the map, as a 1D list.
+        
         """
         self._w = w
         self._h = h
-        self._map = [None]*w*h
         self._n = w*h
+        self._map = [None]*w*h
 
     def __getitem__(self, key):
+        """Returns the value of `_map` at the 1D position `key`."""
         return self.get(key)
 
     def __setitem__(self, key, value):
+        """Sets the value `value` at the 1D position `key` in `_map`."""
         self.set(key, value)
 
     def __repr__(self):
+        """Returns a 2D text representation of the map."""
         res = ""
         for y in range(self._h):
             for x in range(self._w):
@@ -55,7 +75,7 @@ class PixelMap(object):
                 self._map[self.get(x, y)] = value
 
     def get(self, v1, v2=None):
-        """Get the value in a 1D or 2D space.
+        """Returns the value of a given index in a 1D or 2D space.
         
         Arguments:
         - `v1`: 1D position of the element in the map if v2 == None, x position
