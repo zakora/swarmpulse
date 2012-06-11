@@ -33,7 +33,7 @@ class PixelMap(object):
         self._w = w
         self._h = h
         self._n = w*h
-        self._map = [None]*w*h
+        self._map = [init_value]*w*h
 
     def __getitem__(self, key):
         """Returns the value of `_map` at the 1D position `key`."""
