@@ -15,6 +15,7 @@ class TestPixelMap(unittest.TestCase):
 
     def test_get(self):
         self.assertEqual(self.pm.get(0,0), 0)
+        self.assertEqual(self.pm.get(1,2), self.w*2+1)
         self.assertEqual(self.pm.get(10,10), 1010)
         self.assertRaises(IndexError, self.pm.get, -1)
         self.assertRaises(IndexError, self.pm.get, 10, -1)

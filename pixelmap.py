@@ -73,7 +73,7 @@ class PixelMap(object):
             if self.is_in_map_2d(v1, v2):
                 x, y = v1, v2
                 value = v3
-                self._map[self.get(x, y)] = value
+                self._map[self.to1d(x, y)] = value
 
     def get(self, v1, v2=None):
         """Returns the value of a given index in a 1D or 2D space.
@@ -91,7 +91,7 @@ class PixelMap(object):
         else:
             # 2D space
             if self.is_in_map_2d(v1, v2):
-                return self._map[self._w*v2+v1]
+                return self._map[self.to1d(v1,v2)]
 
     def is_in_map_1d(self, index):
         """See if index is a correct position in 1D in the map.
@@ -117,3 +117,7 @@ class PixelMap(object):
             raise IndexError("Index out of the map: "+str(x)+","+str(y)+
                              " not in [0:"+str(self._w-1)+"],"+
                              "[0:"+str(self._h-1)+"].")
+
+    def to1d(self, x, y):
+        """Returns the 1D index of the 2D index `x`,`y`."""
+        return self._w*y+x
