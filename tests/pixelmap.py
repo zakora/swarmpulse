@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-import pixelmap as pm
+import app.pixelmap as pm
 
 class TestPixelMap(unittest.TestCase):
     
