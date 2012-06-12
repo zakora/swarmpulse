@@ -13,3 +13,7 @@ The creativity comes from two things:
 Is it usable?
 -------------
 Not yet.
+
+TODO
+----
+- Live editing: because it's way funnier when it's a game.
